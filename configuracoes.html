@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Configurações</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/formularios.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">Pets</a></li>
+        <li><a href="listagem_usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html" class="active">Configurações</a></li>
+        <li><a href="listagem_reservas.html">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Configurações</nav>
+
+      <section class="painel">
+        <h2 class="page-title">Configurações</h2>
+        <div class="form-wrap">
+          <form data-config action="configuracoes.html" method="get">
+          <div class="form-group">
+            <label for="valor_diaria">Valor da diária *</label>
+            <input type="text" id="valor_diaria" name="valor_diaria" class="form-control" placeholder="R$ 0,00" required>
+          </div>
+          <div class="form-group">
+            <label for="limite_vagas">Vagas disponíveis *</label>
+            <input type="number" id="limite_vagas" name="limite_vagas" class="form-control" required min="1" step="1">
+          </div>
+          <div class="form-group">
+            <label for="nome_hotel">Nome do Hotel/Pet Shop *</label>
+            <input type="text" id="nome_hotel" name="nome_hotel" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="email_contato">E-mail de Contato Principal *</label>
+            <input type="email" id="email_contato" name="email_contato" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone / WhatsApp *</label>
+            <input type="text" id="telefone" name="telefone" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="notificacoes">Notificações por E-mail</label>
+            <select id="notificacoes" name="notificacoes" class="form-control"><option value="todas">Todas as notificações (Novas reservas, cancelamentos)</option><option value="importantes">Apenas importantes</option><option value="desativadas">Desativadas</option></select>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary ico-save">Salvar</button>
+            <button type="reset" class="btn ico-reset">Limpar</button>
+          </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+</body>
+</html>

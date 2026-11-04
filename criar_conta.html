@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Criar Conta</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <div class="auth-imagem" role="img" aria-label="Imagem ilustrativa"></div>
+
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Hotel Pet</h1>
+      </div>
+      <form action="login.html" method="get">
+        <div class="form-group">
+          <label for="nome" class="visually-hidden">Nome</label>
+          <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome completo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="visually-hidden">E-mail</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+        </div>
+
+        <div class="form-group">
+          <label for="senha" class="visually-hidden">Senha</label>
+          <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
+        </div>
+
+        <div class="form-group">
+          <label for="confirma_senha" class="visually-hidden">Confirmação de Senha</label>
+          <input type="password" id="confirma_senha" name="confirma_senha" class="form-control" placeholder="Confirmação de senha" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-bloco">Criar conta</button>
+      </form>
+
+      <a href="login.html" class="auth-link sublinhado">Já tem conta? Login</a>
+    </div>
+  </div>
+
+</body>
+</html>

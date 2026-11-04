@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Usuários</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/tabelas.js" defer></script>
+  <script src="js/filtros.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">Pets</a></li>
+        <li><a href="listagem_usuarios.html" class="active">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="listagem_reservas.html">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Usuários</nav>
+
+      <section class="painel">
+        <h2 class="page-title">Usuários</h2>
+        <div class="toolbar">
+          <a href="novo_usuario.html" class="btn ico-plus">Novo</a>
+        </div>
+
+        <form id="form-filtros" class="filtros" action="listagem_usuarios.html" method="get">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="id">Id</label>
+              <input type="text" id="id" name="id" class="form-control" placeholder="Ex: 1">
+            </div>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome do usuário">
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" class="form-control" placeholder="exemplo@email.com">
+            </div>
+            <div class="form-group">
+              <label for="funcao">Função</label>
+              <select id="funcao" name="funcao" class="form-control"><option value="">Todas</option><option value="Cliente">Cliente</option><option value="Funcionário">Funcionário</option><option value="Gerente">Gerente</option></select>
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status" name="status" class="form-control"><option value="">Todos</option><option value="Ativo">Ativo</option><option value="Inativo">Inativo</option></select>
+            </div>
+          </div>
+          <div class="filtros-acoes">
+            <button type="submit" class="btn btn-primary ico-search">Pesquisar</button>
+            <button type="reset" class="btn ico-reset">Limpar</button>
+          </div>
+        </form>
+
+        <div class="table-responsive">
+          <table id="tabela-usuarios">
+            <thead>
+              <tr>
+                <th>Id</th><th>Nome</th><th>E-mail</th><th>Função</th><th>Status</th><th></th>
+              </tr>
+            </thead>
+            <tbody><!-- linhas desenhadas por js/tabelas.js --></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1º desenha as linhas (localStorage) | 2º liga os filtros da Semana 2
+      Tabelas.montar('#tabela-usuarios', 'usuarios');
+      Filtros.iniciar({
+        form: '#form-filtros',
+        tabela: '#tabela-usuarios',
+        regras: [
+          { campo: 'id', coluna: 0, tipo: 'contem' },
+          { campo: 'nome', coluna: 1, tipo: 'contem' },
+          { campo: 'email', coluna: 2, tipo: 'contem' },
+          { campo: 'funcao', coluna: 3, tipo: 'exato' },
+          { campo: 'status', coluna: 4, tipo: 'exato' }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

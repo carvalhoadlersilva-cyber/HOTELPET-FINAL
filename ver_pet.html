@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Ver Pet</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/formularios.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html" class="active">Pets</a></li>
+        <li><a href="listagem_usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="listagem_reservas.html">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Pets / Ver Pet</nav>
+
+      <section class="painel" data-visao="pets">
+        <h2 class="page-title">Ver pet</h2>
+        <div class="toolbar">
+          <a href="editar_pet.html" data-link="editar_pet.html" class="btn btn-sm ico-edit">Editar</a>
+          <button type="button" class="btn btn-sm ico-trash" data-acao="excluir-registro" data-colecao="pets" data-voltar="index.html">Deletar</button>
+        </div>
+
+        <dl class="detalhes">
+          <dt>Proprietário:</dt><dd data-campo="proprietarioNome"></dd>
+          <dt>Id:</dt><dd data-campo="id"></dd>
+          <dt>Nome:</dt><dd data-campo="nome"></dd>
+          <dt>Tipo:</dt><dd data-campo="tipo"></dd>
+          <dt>Raça:</dt><dd data-campo="raca"></dd>
+          <dt>Tamanho:</dt><dd data-campo="tamanho"></dd>
+          <dt>Imagem</dt><dd data-campo="foto"></dd>
+          <dt>Reservas:</dt><dd data-campo="reservas"></dd>
+        </dl>
+
+        <div class="rodape-acoes">
+          <a href="index.html" class="btn ico-back">Voltar</a>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+</body>
+</html>

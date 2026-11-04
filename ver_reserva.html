@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Ver Reserva</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/formularios.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">Pets</a></li>
+        <li><a href="listagem_usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="listagem_reservas.html" class="active">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Reservas / Ver Reserva</nav>
+
+      <section class="painel" data-visao="reservas">
+        <h2 class="page-title">Ver reserva</h2>
+        <div class="toolbar">
+          <a href="editar_reserva.html" data-link="editar_reserva.html" class="btn btn-sm ico-edit">Editar esta reserva</a>
+        </div>
+
+        <dl class="detalhes">
+          <dt>Id:</dt><dd data-campo="id"></dd>
+          <dt>Proprietário:</dt><dd data-campo="proprietarioNome"></dd>
+          <dt>Pet:</dt><dd data-campo="pet"></dd>
+          <dt>Chegada:</dt><dd data-campo="chegada"></dd>
+          <dt>Partida:</dt><dd data-campo="partida"></dd>
+          <dt>Notas:</dt><dd data-campo="notas"></dd>
+          <dt>Anotações dos Funcionários:</dt><dd data-campo="anotacoes"></dd>
+          <dt>Imagens</dt><dd class="thumbs" data-campo="imagens"></dd>
+          <dt>Status:</dt><dd data-campo="status"></dd>
+          <dt>Total das diárias:</dt><dd data-campo="total"></dd>
+          <dt>Recibo :</dt><dd data-campo="recibo"></dd>
+          <dt>Criado em:</dt><dd data-campo="criadoEm"></dd>
+          <dt>Atualizado em:</dt><dd data-campo="atualizadoEm"></dd>
+        </dl>
+
+        <div class="rodape-acoes">
+          <a href="listagem_reservas.html" class="btn ico-back">Voltar</a>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+</body>
+</html>

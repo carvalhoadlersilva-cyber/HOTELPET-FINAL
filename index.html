@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Pets</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/tabelas.js" defer></script>
+  <script src="js/filtros.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html" class="active">Pets</a></li>
+        <li><a href="listagem_usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="listagem_reservas.html">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Pets</nav>
+
+      <section class="painel">
+        <h2 class="page-title">Pets</h2>
+        <div class="toolbar">
+          <a href="novo_pet.html" class="btn ico-plus">Novo Pet</a>
+        </div>
+
+        <form id="form-filtros" class="filtros" action="index.html" method="get">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="id">Id</label>
+              <input type="text" id="id" name="id" class="form-control" placeholder="Ex: 1234">
+            </div>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome do pet">
+            </div>
+            <div class="form-group">
+              <label for="tipo">Tipo</label>
+              <select id="tipo" name="tipo" class="form-control"><option value="">Todos</option><option value="Cachorro">Cachorro</option><option value="Gato">Gato</option></select>
+            </div>
+            <div class="form-group">
+              <label for="raca">Raça</label>
+              <input type="text" id="raca" name="raca" class="form-control" placeholder="Raça">
+            </div>
+            <div class="form-group">
+              <label for="tamanho">Tamanho</label>
+              <input type="text" id="tamanho" name="tamanho" class="form-control" placeholder="Porte / Tamanho">
+            </div>
+          </div>
+          <div class="filtros-acoes">
+            <button type="submit" class="btn btn-primary ico-search">Pesquisar</button>
+            <button type="reset" class="btn ico-reset">Limpar</button>
+          </div>
+        </form>
+
+        <div class="table-responsive">
+          <table id="tabela-pets">
+            <thead>
+              <tr>
+                <th>Id</th><th>Foto</th><th>Nome</th><th>Tipo</th><th>Raça</th><th>Tamanho</th><th></th>
+              </tr>
+            </thead>
+            <tbody><!-- linhas desenhadas por js/tabelas.js --></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1º desenha as linhas (localStorage) | 2º liga os filtros da Semana 2
+      Tabelas.montar('#tabela-pets', 'pets');
+      Filtros.iniciar({
+        form: '#form-filtros',
+        tabela: '#tabela-pets',
+        regras: [
+          { campo: 'id', coluna: 0, tipo: 'contem' },
+          { campo: 'nome', coluna: 2, tipo: 'contem' },
+          { campo: 'tipo', coluna: 3, tipo: 'exato' },
+          { campo: 'raca', coluna: 4, tipo: 'contem' },
+          { campo: 'tamanho', coluna: 5, tipo: 'contem' }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

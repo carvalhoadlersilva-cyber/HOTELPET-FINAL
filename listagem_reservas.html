@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Reservas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/tabelas.js" defer></script>
+  <script src="js/filtros.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">Pets</a></li>
+        <li><a href="listagem_usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="listagem_reservas.html" class="active">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Reservas</nav>
+
+      <section class="painel">
+        <h2 class="page-title">Reservas</h2>
+        <div class="toolbar">
+          <a href="nova_reserva.html" class="btn ico-plus">Nova reserva</a>
+        </div>
+
+        <form id="form-filtros" class="filtros" action="listagem_reservas.html" method="get">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="id">Id</label>
+              <input type="text" id="id" name="id" class="form-control" placeholder="Ex: 1234">
+            </div>
+            <div class="form-group">
+              <label for="chegada">Chegada</label>
+              <input type="date" id="chegada" name="chegada" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="proprietario">Proprietário</label>
+              <input type="text" id="proprietario" name="proprietario" class="form-control" placeholder="Nome do proprietário">
+            </div>
+            <div class="form-group">
+              <label for="partida">Partida</label>
+              <input type="date" id="partida" name="partida" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status" name="status" class="form-control"><option value="">Todos</option><option value="Reservada">Reservada</option><option value="Em progresso">Em progresso</option><option value="Finalizada">Finalizada</option></select>
+            </div>
+            <div class="form-group">
+              <label for="pet">Pet</label>
+              <input type="text" id="pet" name="pet" class="form-control" placeholder="Nome do pet">
+            </div>
+          </div>
+          <div class="filtros-acoes">
+            <button type="submit" class="btn btn-primary ico-search">Pesquisar</button>
+            <button type="reset" class="btn ico-reset">Limpar</button>
+          </div>
+        </form>
+
+        <div class="table-responsive">
+          <table id="tabela-reservas">
+            <thead>
+              <tr>
+                <th>Id</th><th>Proprietário</th><th>Pet</th><th>Chegada</th><th>Partida</th><th>Status</th><th>Total</th><th></th>
+              </tr>
+            </thead>
+            <tbody><!-- linhas desenhadas por js/tabelas.js --></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1º desenha as linhas (localStorage) | 2º liga os filtros da Semana 2
+      Tabelas.montar('#tabela-reservas', 'reservas');
+      Filtros.iniciar({
+        form: '#form-filtros',
+        tabela: '#tabela-reservas',
+        regras: [
+          { campo: 'id', coluna: 0, tipo: 'contem' },
+          { campo: 'proprietario', coluna: 1, tipo: 'contem' },
+          { campo: 'pet', coluna: 2, tipo: 'contem' },
+          { campo: 'chegada', coluna: 3, tipo: 'data-min' },
+          { campo: 'partida', coluna: 4, tipo: 'data-max' },
+          { campo: 'status', coluna: 5, tipo: 'exato' }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

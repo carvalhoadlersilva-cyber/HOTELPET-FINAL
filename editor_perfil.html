@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Editar Perfil</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/formularios.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">Pets</a></li>
+        <li><a href="listagem_usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="listagem_reservas.html">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Editar Perfil</nav>
+
+      <section class="painel">
+        <h2 class="page-title">Editar Perfil</h2>
+        <div class="form-wrap">
+          <form data-perfil action="editor_perfil.html" method="get" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" id="sobrenome" name="sobrenome" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone *</label>
+            <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="(77) 99999-8888" required>
+          </div>
+          <div class="form-group">
+            <label for="foto_perfil">Foto</label>
+            <div class="thumbs">
+              <img id="pre-foto" src="perfil_gerente.png" alt="Foto atual" class="thumb">
+              <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*" class="form-control" style="flex:1">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary ico-save">Salvar</button>
+            <button type="reset" class="btn ico-reset">Limpar</button>
+          </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+</body>
+</html>

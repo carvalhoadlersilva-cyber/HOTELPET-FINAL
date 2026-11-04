@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Nova Reserva</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/formularios.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar / Menu Lateral -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">Hotel Pet</div>
+      <ul class="sidebar-nav">
+        <li><a href="index.html">Pets</a></li>
+        <li><a href="listagem_usuarios.html">Usuários</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="listagem_reservas.html" class="active">Reservas</a></li>
+        <li><a href="login.html">Sair</a></li>
+      </ul>
+    </aside>
+
+    <!-- Header / Cabeçalho Superior -->
+    <header class="app-header">
+      <div class="header-user">
+        <a href="editor_perfil.html">
+          <img src="perfil_gerente.png" alt="Foto do Gerente" class="avatar">
+          <span>João da Silva</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="app-main">
+      <nav class="breadcrumb">Home / Reservas / Nova Reserva</nav>
+
+      <section class="painel">
+        <h2 class="page-title">Fazer reserva</h2>
+        <div class="form-wrap">
+          <form data-colecao="reservas" data-modo="novo" action="listagem_reservas.html" method="get">
+          <div class="form-group">
+            <label for="pet">Pet *</label>
+            <select id="pet" name="petId" class="form-control" required data-opcoes="pets"><option value="">Selecione um Pet</option></select>
+          </div>
+          <div class="form-group">
+            <label for="inicio">Período *</label>
+            <div class="periodo">
+              <input type="date" id="inicio" name="chegada" class="form-control" required aria-label="Chegada">
+              <input type="date" id="fim" name="partida" class="form-control" required aria-label="Partida">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="notas">Notas</label>
+            <textarea id="notas" name="notas" rows="4" class="form-control" placeholder="Observações de alimentação, remédios ou comportamento..."></textarea>
+          </div>
+          <div class="total-diarias">Total das diárias: <strong id="total-diarias">R$ 0,00</strong><span class="dica" id="dica-diaria"></span></div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary ico-save">Salvar</button>
+            <button type="reset" class="btn ico-reset">Limpar</button>
+          </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+</body>
+</html>

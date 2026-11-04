@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Pet - Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/navegacao.js"></script>
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <div class="auth-imagem" role="img" aria-label="Imagem ilustrativa"></div>
+
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Hotel Pet</h1>
+      </div>
+      <form id="form-login" action="index.html" method="get">
+        <div class="form-group">
+          <label for="login" class="visually-hidden">Login</label>
+          <input type="text" id="login" name="login" class="form-control" required placeholder="Login">
+        </div>
+
+        <div class="form-group">
+          <label for="senha" class="visually-hidden">Senha</label>
+          <input type="password" id="senha" name="senha" class="form-control" required placeholder="Senha">
+        </div>
+
+        <div class="auth-opcoes">
+          <label><input type="checkbox" id="lembrar" checked> Mantenha-me conectado</label>
+          <a href="#">Esqueci a senha</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-bloco">Enviar</button>
+      </form>
+
+      <div class="auth-ou"><span>ou</span></div>
+      <a href="criar_conta.html" class="auth-link">Criar uma conta</a>
+    </div>
+  </div>
+
+</body>
+</html>
